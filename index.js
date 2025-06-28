@@ -5,8 +5,7 @@ function displayPoem (response) {
          autoStart: true,
          delay: 50,
          cursor: "",
-         start: true,
-       });
+       }).start();
     (response.data.answer);
 }
 
@@ -19,8 +18,13 @@ let context = "You are an expert who provides poems. Your mission is to generate
 let prompt = `User instruction: Generate a short german poem about ${userInstruction.value}`;
 let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+fetch(apiUrl)
+.then(response => response.json())
+.then(data => displayPoem(data))
+.catch(error => console.error('Error fetching the poem:', error));
+
 new Typewriter('#poem', {
-    strings: ["Please wait for your Ai generated german poem..."],
+    strings: [`⏳Please wait for your AI generated german poem about ${userInstruction.value}`],
     autoStart: true,
     delay: 20,
     cursor: "",

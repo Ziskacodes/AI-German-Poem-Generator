@@ -34,13 +34,18 @@ background-size: cover;
     background-color: chocolate;
 }
 
+.form-container {
+    padding: 30px;
+        border-radius: 10px;
+        background-color: antiquewhite;
+        opacity: 1;
+        border: none;
+        text-align: left;
+}
+
 .form {
     display: flex;
-    padding: 30px;
-    border-radius: 10px;
-background-color: antiquewhite;
-opacity: 1;
-border: none;
+    
 }
 
 .container {
